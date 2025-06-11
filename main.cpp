@@ -285,8 +285,7 @@ int main() {
    	auto startlatALE = std::chrono::high_resolution_clock::now();
 	auto endlatALE = std::chrono::high_resolution_clock::now();
   	startlatALE = std::chrono::high_resolution_clock::now();
-  	endlatALE = std::chrono::high_resolution_clock::now();
- 	
+  	
  	startlatALE = std::chrono::high_resolution_clock::now();
   	
  	for(int i=0;i<10;i++){
@@ -296,7 +295,7 @@ int main() {
    	
 	}
 	endlatALE = std::chrono::high_resolution_clock::now();
- 	std::cout << "\n\n[INFO] LETÊNCIA:" << std::chrono::duration<double>((endlatALE - startlatALE)/10).count() << "s\n\n";
+ 	std::cout << "\n\n[INFO] Busca Aleatória:" << std::chrono::duration<double>((endlatALE - startlatALE)/10).count() << "s\n\n";
 	
     
     //escalabilidade
@@ -311,12 +310,7 @@ int main() {
     });
     // Código que será executado como se estivesse em CPU de 1 GHz
         
- 	setlocale(LC_ALL, "pt_BR");
-    
-    #ifdef _WIN32
-    SetConsoleOutputCP(65001); // Só no Windows
-    #endif
-    
+ 
     //definisdo o tempo para latencia
 	auto startlatR7 = std::chrono::high_resolution_clock::now();
 	auto endlatR7 = std::chrono::high_resolution_clock::now();
