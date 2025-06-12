@@ -1,0 +1,52 @@
+# Project: estruturaHash
+# Makefile created by Embarcadero Dev-C++ 6.3
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = hash.o estatisticas.o csv.o main.o filtros.o previsao.o latencia.o buscaAle.o ram.o
+LINKOBJ  = hash.o estatisticas.o csv.o main.o filtros.o previsao.o latencia.o buscaAle.o ram.o
+LIBS     = -L"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib" -L"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/lib" -static-libgcc -lpsapi
+INCS     = -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include"
+CXXINCS  = -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include/c++"
+BIN      = estruturaHash.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+DEL      = C:\Program Files (x86)\Embarcadero\Dev-Cpp\DevCpp.exe INTERNAL_DEL
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${DEL} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+hash.o: hash.c
+	$(CC) -c hash.c -o hash.o $(CFLAGS)
+
+estatisticas.o: estatisticas.c
+	$(CC) -c estatisticas.c -o estatisticas.o $(CFLAGS)
+
+csv.o: csv.c
+	$(CC) -c csv.c -o csv.o $(CFLAGS)
+
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
+
+filtros.o: filtros.c
+	$(CC) -c filtros.c -o filtros.o $(CFLAGS)
+
+previsao.o: previsao.c
+	$(CC) -c previsao.c -o previsao.o $(CFLAGS)
+
+latencia.o: latencia.c
+	$(CC) -c latencia.c -o latencia.o $(CFLAGS)
+
+buscaAle.o: buscaAle.c
+	$(CC) -c buscaAle.c -o buscaAle.o $(CFLAGS)
+
+ram.o: ram.c
+	$(CC) -c ram.c -o ram.o $(CFLAGS)
