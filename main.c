@@ -90,6 +90,7 @@ int main() {
 	printf("Tempo de inserção: %.6f segundos\n\n", elapsed1);
 
     // Testar busca por registro
+    printf("Teste em um valor index pré determinado: 10460.\n");
     int index = 10460;
      clock_t start2 = clock();
 
@@ -103,14 +104,14 @@ int main() {
         printf("Registro #%d não encontrado.\n\n", index);
     }
  	 printf("Tempo de busca: %.6f segundos\n\n", elapsed2);
-	 printf("Teste aleatório de busca\n");
+	 printf("=========Teste de busca de valores pré determinados ==========\n");
 	 int indexale[] = {351, 846, 3213, 17100, 12045, 15842, 3694, 9632, 9845, 6};
-	int array_size = sizeof(indexale) / sizeof(indexale[0]);  // Calculate array size correctly
-   clock_t start = clock();
+	 int array_size = sizeof(indexale) / sizeof(indexale[0]);  // Calculate array size correctly
+  	 clock_t start = clock();
 
 	for (int i = 0; i < array_size; i++) {
     SkipNode *found = sl_search_by_index(list, indexale[i]);
-   
+  	print_node(found);
 	}
 	 clock_t end = clock();
 	  print_node(found);
@@ -118,11 +119,12 @@ int main() {
     double elapsed = ((double)(end - start)) / CLOCKS_PER_SEC;
     
 
-  printf("Tempo de busca: %.6f segundos\n", elapsed);
+ 	printf("Tempo de busca: %.6f segundos\n", elapsed);
     
 
 	
     // Testar inserção
+    printf("==========Teste de inserção de valor pré determinados ==========\n\n");
     double new_data[] = {2025, 6, 7, 15, 1.0, 0.3};
     sl_insert(list, 9999, new_data, 6);
     printf("Inserido registro #9999:\n\n");
@@ -139,7 +141,7 @@ int main() {
     double elapsed3 = ((double)(end3 - start3)) / CLOCKS_PER_SEC;
    printf("Tempo de remoção: %.6f segundos\n", elapsed3);
 	double lat1 = ( elapsed3+elapsed2+elapsed1)/3;
-	printf("Tempo de latência:%.6f segundos\n", lat1);
+	printf("\n\nTempo de latência:%.6f segundos\n", lat1);
 	 found = sl_search_by_index(list, 100);
     if (found) {
         printf("ERRO: Registro #%d ainda encontrado após remoção!\n", 100);
